@@ -6,15 +6,15 @@
     <title>Restricted Access Demo</title>
 </head>
 <body>
-<h1>Welcome</h1>
-<iframe id="myFrame" src="https://www.zoho.com/en-in/crm/"></iframe>
+<h1>Welcome To iframe</h1>
+<iframe id="myFrame" src="https://www.zoho.com/en-in/crm/" width="800" height="400"></iframe>
 
 <script>
     
     var allowedDomains = [
         "https://www.leadsquared.com/",
         "https://www.zoho.com/en-in/crm/",
-        "http://127.0.0.1:5500/iframe.html"
+        "https://www.dashcx.com/product/"
     ];
 
     var iframe = document.getElementById('myFrame');
@@ -27,6 +27,9 @@
     if (!allowed) {
         iframe.style.display = 'none';
         alert('Access denied. Please access this page from an allowed domain.');
+        setTimeout(function() {
+            window.location.href = "https://www.your-website.com";
+        }, 5000); 
     }
 </script>
 
