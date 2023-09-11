@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restricted Access Demo</title>
+</head>
+<body>
+<h1>Welcome</h1>
+<iframe id="myFrame" src="https://www.zoho.com/en-in/crm/"></iframe>
+
+<script>
+    
+    var allowedDomains = [
+        "https://www.leadsquared.com/",
+        "https://www.zoho.com/en-in/crm/",
+        "http://127.0.0.1:5500/iframe.html"
+    ];
+
+    var iframe = document.getElementById('myFrame');
+    var src = iframe.src;
+
+    var allowed = allowedDomains.some(function(domain) {
+        return src.startsWith(domain);
+    });
+
+    if (!allowed) {
+        iframe.style.display = 'none';
+        alert('Access denied. Please access this page from an allowed domain.');
+    }
+</script>
+
+</body>
+</html>
